@@ -1,3 +1,6 @@
+start:
+	php artisan serve --host 0.0.0.0
+
 install:
 	composer install
 	cp -n .env.example .env
