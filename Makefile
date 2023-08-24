@@ -1,6 +1,6 @@
 install:
 	composer install
-	cp -n .env
+	cp -n .env.example .env
 	php artisan key:gen
 
 validate:
