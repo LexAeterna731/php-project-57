@@ -1,5 +1,6 @@
 install:
 	composer install
+	php artisan key:gen
 
 validate:
 	composer validate
