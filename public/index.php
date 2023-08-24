@@ -53,6 +53,6 @@ $response = $kernel->handle(
 )->send();
 
 /* Rollbsr test */
-\Log::debug('Test debug message');
+//\Log::debug('Test debug message');
 
 $kernel->terminate($request, $response);
