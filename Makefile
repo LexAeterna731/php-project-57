@@ -8,7 +8,7 @@ lint:
 	composer exec --verbose phpcs -- --standard=PSR12 routes
 
 test:
-	composer exec --verbose phpunit tests
+	php artisan test
 
 test-coverage:
-	XDEBUG_MODE=coverage composer exec --verbose phpunit tests -- --coverage-clover build/logs/clover.xml
+	XDEBUG_MODE=coverage php artisan test --coverage-clover build/logs/clover.xml
