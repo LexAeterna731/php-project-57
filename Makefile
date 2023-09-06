@@ -26,3 +26,4 @@ railway-deploy:
 	composer install
 	php artisan migrate
 	php artisan db:seed
+	npm run build
