@@ -5,8 +5,7 @@ install:
 	composer install
 	cp -n .env.example .env
 	php artisan key:gen
-	php artisan migrate --force
-	php artisan db:seed
+	php artisan migrate
 	npm ci
 	npm run build
 
@@ -21,6 +20,3 @@ test:
 
 test-coverage:
 	XDEBUG_MODE=coverage php artisan test --coverage-clover build/logs/clover.xml
-
-railway-deploy:
-	php artisan migrate --force
