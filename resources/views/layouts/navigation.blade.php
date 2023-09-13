@@ -24,6 +24,12 @@
                         {{ __('layout.statuses') }}
                     </x-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('tasks.index')" :active="request()->routeIs('tasks.index')">
+                        {{ __('layout.tasks') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             @auth
@@ -88,6 +94,12 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('task_statuses.index')" :active="request()->routeIs('task_statuses.index')">
                 {{ __('layout.statuses') }}
+            </x-responsive-nav-link>
+        </div>
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('tasks.index')" :active="request()->routeIs('tasks.index')">
+                {{ __('layout.tasks') }}
             </x-responsive-nav-link>
         </div>
 

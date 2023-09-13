@@ -22,7 +22,14 @@ class UpdateTaskStatusRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|unique:task_statuses',
+            'name' => 'required',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => __('validation.custom_required_field_error'),
         ];
     }
 }

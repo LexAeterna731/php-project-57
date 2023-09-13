@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use App\Models\TaskStatus;
+use App\Models\Task;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -13,6 +14,7 @@ class TaskStatusTest extends TestCase
 
     private User $user;
     private TaskStatus $taskStatus;
+    private TaskStatus $taskStatusWithTask;
     private array $data;
 
     protected function setUp(): void
@@ -21,6 +23,9 @@ class TaskStatusTest extends TestCase
         $this->user = User::factory()->create();
         $this->taskStatus = TaskStatus::factory()->create();
         $this->data = ['name' => 'testStatus'];
+        $this->taskStatusWithTask = TaskStatus::factory()
+            ->has(Task::factory()->count(2))
+            ->create();
     }
 
     public function test_task_statuses_screen_can_be_rendered(): void
@@ -104,6 +109,16 @@ class TaskStatusTest extends TestCase
 
         $response->assertStatus(403);
         $this->assertDatabaseHas('task_statuses', $this->taskStatus->only(['name']));
+    }
+
+    public function test_user_cant_delete_task_status_with_task(): void
+    {
+        $response = $this->actingAs($this->user)
+            ->withSession(['banned' => false])
+            ->delete(route('task_statuses.destroy', $this->taskStatusWithTask));
+        
+        $response->assertRedirect(route('task_statuses.index'));
+        $this->assertDatabaseHas('task_statuses', $this->taskStatusWithTask->only(['name']));;
     }
 
     public function test_user_can_delete_task_status(): void
