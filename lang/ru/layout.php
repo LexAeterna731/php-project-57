@@ -24,4 +24,8 @@ return [
     'executor' => 'Исполнитель',
     'update_task' => 'Изменение задачи',
     'view_task' => 'Просмотр задачи',
+    'labels' => 'Метки',
+    'create_label' => 'Создать метку',
+    'update_label' => 'Изменение метки',
+    'table_description' => 'Описание',
 ];

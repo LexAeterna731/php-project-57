@@ -9,4 +9,8 @@ return [
     'tasks_update_message' => 'Задача успешно изменена',
     'tasks_delete_message' => 'Задача успешно удалена',
     'tasks_cant_delete_message' => 'Не удалось удалить задачу',
+    'labels_create_message' => 'Метка успешно создана',
+    'labels_update_message' => 'Метка успешно изменена',
+    'labels_delete_message' => 'Метка успешно удалена',
+    'labels_cant_delete_message' => 'Не удалось удалить метку',
 ];

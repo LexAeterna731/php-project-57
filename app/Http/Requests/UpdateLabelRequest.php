@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateTaskRequest extends FormRequest
+class UpdateLabelRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,6 @@ class UpdateTaskRequest extends FormRequest
         return [
             'name' => 'required',
             'description' => 'max:1000',
-            'status_id' => 'required',
-            'assigned_to_id' => 'nullable',
-            'labels' => '',
         ];
     }
 
@@ -35,7 +32,6 @@ class UpdateTaskRequest extends FormRequest
         return [
             'name.required' => __('validation.custom_required_field_error'),
             'description.max' => __('validation.custom_max_field_error'),
-            'status_id.required' => __('validation.custom_required_field_error'),
         ];
     }
 }

@@ -30,6 +30,12 @@
                         {{ __('layout.tasks') }}
                     </x-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('labels.index')" :active="request()->routeIs('labels.index')">
+                        {{ __('layout.labels') }}
+                    </x-nav-link>
+                </div>                
             </div>
 
             @auth
@@ -100,6 +106,12 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('tasks.index')" :active="request()->routeIs('tasks.index')">
                 {{ __('layout.tasks') }}
+            </x-responsive-nav-link>
+        </div>
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('labels.index')" :active="request()->routeIs('labels.index')">
+                {{ __('layout.labels') }}
             </x-responsive-nav-link>
         </div>
 

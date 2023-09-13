@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use App\Models\User;
 use App\Models\TaskStatus;
+use App\Models\Label;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
@@ -34,8 +35,9 @@ class TaskController extends Controller
         $task = new Task();
         $statuses = TaskStatus::pluck('name', 'id');
         $users = User::pluck('name', 'id');
+        $labels = Label::pluck('name', 'id');
 
-        return view('task.create', compact('task', 'statuses', 'users'));
+        return view('task.create', compact('task', 'statuses', 'users', 'labels'));
     }
 
     /**
@@ -48,6 +50,10 @@ class TaskController extends Controller
         $task->created_by_id = $request->user()->id;
         $task->fill($validated);
         $task->save();
+
+        if (array_key_exists('labels', $validated)) {
+            $task->labels()->attach($validated['labels']);
+        }
 
         flash(__('controller.tasks_create_message'))->success();
         return redirect()->route('tasks.index');
@@ -68,8 +74,9 @@ class TaskController extends Controller
     {
         $statuses = TaskStatus::pluck('name', 'id');
         $users = User::pluck('name', 'id');
+        $labels = Label::pluck('name', 'id');
 
-        return view('task.edit', compact('task', 'statuses', 'users'));
+        return view('task.edit', compact('task', 'statuses', 'users', 'labels'));
     }
 
     /**
@@ -80,6 +87,10 @@ class TaskController extends Controller
         $validated = $request->validated();
         $task->fill($validated);
         $task->save();
+
+        if (array_key_exists('labels', $validated)) {
+            $task->labels()->sync($validated['labels']);
+        }
 
         flash(__('controller.tasks_update_message'))->success();
         return redirect()->route('tasks.index');
