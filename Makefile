@@ -20,3 +20,8 @@ test:
 
 test-coverage:
 	XDEBUG_MODE=coverage php artisan test --coverage-clover build/logs/clover.xml
+
+railway:
+	composer install
+	php artisan migrate
+	npm run build
