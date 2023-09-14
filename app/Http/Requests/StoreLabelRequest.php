@@ -31,7 +31,7 @@ class StoreLabelRequest extends FormRequest
     {
         return [
             'name.required' => __('validation.custom_required_field_error'),
-            'name.unique' => __('validation.custom_unique_field_error'),
+            'name.unique' => __('validation.custom_unique_label_error'),
             'description.max' => __('validation.custom_max_field_error'),
         ];
     }
