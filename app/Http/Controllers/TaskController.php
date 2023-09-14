@@ -60,7 +60,7 @@ class TaskController extends Controller
     {
         $validated = $request->validated();
         $task = new Task();
-        $task->created_by_id = Auth::id();
+        $task->created_by_id = (int) Auth::id();
         $task->fill($validated);
         $task->save();
 

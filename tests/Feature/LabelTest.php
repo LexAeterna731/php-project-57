@@ -14,7 +14,7 @@ class LabelTest extends TestCase
     use RefreshDatabase;
 
     private User $user;
-    private Task $taskWithTask;
+    private Label $labelWithTask;
     private array $data;
     private Label $label;
 
