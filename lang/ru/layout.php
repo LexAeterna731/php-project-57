@@ -28,4 +28,11 @@ return [
     'create_label' => 'Создать метку',
     'update_label' => 'Изменение метки',
     'table_description' => 'Описание',
+    'submit' => 'Применить',
+    'creator' => 'Автор',
+    'project' => 'Менеджер задач',
+    'header' => 'Это простой менеджер задач на Laravel',
+    'enter' => 'Вход',
+    'registration' => 'Регистрация',
+    'exit' => 'Выход',
 ];
