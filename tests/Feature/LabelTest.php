@@ -14,7 +14,7 @@ class LabelTest extends TestCase
     use RefreshDatabase;
 
     private User $user;
-    private Task $task;
+    private Task $taskWithTask;
     private array $data;
     private Label $label;
 
@@ -22,7 +22,6 @@ class LabelTest extends TestCase
     {
         parent::setUp();
         $this->user = User::factory()->create();
-        $this->task = Task::factory()->create();
         $this->label = Label::factory()->create();
         $this->data = [
             'name' => 'testTask',

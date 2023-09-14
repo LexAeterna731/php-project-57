@@ -11,6 +11,7 @@ use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
 use Spatie\QueryBuilder\QueryBuilder;
 use Spatie\QueryBuilder\AllowedFilter;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
@@ -59,7 +60,7 @@ class TaskController extends Controller
     {
         $validated = $request->validated();
         $task = new Task();
-        $task->created_by_id = $request->user()->id;
+        $task->created_by_id = Auth::id();
         $task->fill($validated);
         $task->save();
 
@@ -113,12 +114,8 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        if ($task) {
-            $task->delete();
-            flash(__('controller.tasks_delete_message'))->success();
-        } else {
-            flash(__('controller.tasks_cant_delete_message'))->error();
-        }
+        $task->delete();
+        flash(__('controller.tasks_delete_message'))->success();
 
         return redirect()->route('tasks.index');
     }
