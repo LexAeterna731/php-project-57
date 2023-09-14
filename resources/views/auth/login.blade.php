@@ -39,7 +39,7 @@
                 </a>
             @endif
 
-            <x-primary-button class="ml-3">
+            <x-primary-button class="ml-3" style="text-transform: capitalize">
                 {{ __('layout.form_log_in') }}
             </x-primary-button>
         </div>
