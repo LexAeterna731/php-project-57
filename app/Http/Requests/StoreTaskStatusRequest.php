@@ -30,7 +30,7 @@ class StoreTaskStatusRequest extends FormRequest
     {
         return [
             'name.required' => __('validation.custom_required_field_error'),
-            'name.unique' => __('validation.custom_unique_field_error'),
+            'name.unique' => __('validation.custom_unique_task_status_error'),
         ];
     }
 }
