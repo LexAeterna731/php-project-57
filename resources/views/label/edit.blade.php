@@ -6,7 +6,7 @@
             {{ __('layout.update_label') }}
         </h1>
 
-        {{ Form::model($label, ['route' => ['labels.store', $label], 'method' => 'PATCH', 'class' => 'w-50']) }}
+        {{ Form::model($label, ['route' => ['labels.update', $label], 'method' => 'PATCH', 'class' => 'w-50']) }}
             <div class="flex flex-col">
                 <div>
                     {{ Form::label('name', __('layout.name')) }}
