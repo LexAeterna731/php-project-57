@@ -35,7 +35,7 @@
                     </div>
                 @enderror
                 <div class="mt-2">
-                    {{ Form::submit(__('layout.create'), ['class' => 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded']) }}
+                    {{ Form::submit(__('layout.update'), ['class' => 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded']) }}
                 </div>
             </div>
         {{ Form::close() }}
