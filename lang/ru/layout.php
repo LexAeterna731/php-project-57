@@ -37,4 +37,12 @@ return [
     'enter' => 'Вход',
     'registration' => 'Регистрация',
     'exit' => 'Выход',
+    'form_name' => 'Имя',
+    'form_password' => 'Пароль',
+    'form_confirm' => 'Подтверждение',
+    'form_already_register' => 'Уже зарегистрированы?',
+    'form_register' => 'Зарегистрировать',
+    'form_remember_me' => 'Запомнить меня',
+    'form_forgotten_password' => 'Забыли пароль?',
+    'form_log_in' => 'Войти',
 ];

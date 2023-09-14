@@ -7,7 +7,7 @@
                 </span>
             </a>
 
-            <div class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1">
+            <div class="items-center justify-between w-full lg:flex lg:w-auto lg:order-1">
                 <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                     <li>
                         <a href="{{ route('tasks.index') }}" class="block py-2 pl-3 pr-4 text-gray-700 hover:text-blue-700 lg:p-0">
@@ -37,7 +37,7 @@
                     </a>
                 @endguest
                 @auth
-                    <form method="POST" action="{{ route('logout') }}" style="display:none">
+                    <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display:none">
                         @csrf
                     </form>
                     <a href="{{ route('logout') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
