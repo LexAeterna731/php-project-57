@@ -48,7 +48,7 @@
                         {{ $taskStatus->name }}
                     </td>
                     <td>
-                        {{ $taskStatus->created_at }}
+                        {{ date_format($taskStatus->created_at, 'd.m.Y') }}
                     </td>
 
                     @auth

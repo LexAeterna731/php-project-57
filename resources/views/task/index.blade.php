@@ -100,7 +100,7 @@
                         {{ $task->executor->name }}
                     </td>
                     <td>
-                        {{ $task->created_at }}
+                        {{ date_format($task->created_at, 'd.m.Y') }}
                     </td>
 
                     @auth

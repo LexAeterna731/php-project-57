@@ -54,7 +54,7 @@
                         {{ $label->description }}
                     </td>                    
                     <td>
-                        {{ $label->created_at }}
+                        {{ date_format($label->created_at, 'd.m.Y') }}
                     </td>
 
                     @auth
